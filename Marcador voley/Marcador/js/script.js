@@ -3,6 +3,9 @@ let scoreB = 0;
 
 let numero_sets = 1;
 
+let campeonA = 0;
+let campeonB = 0;
+
 function addPoint(team) {
     if ( team === 'A'){
         scoreA++;
@@ -50,4 +53,8 @@ function resetScore(){
     document.getElementById('scoreB').textContent = scoreB;
 }
 
-
+function campeon(){
+    /* se juegan 2 sets y que gane 2 sets de seguido es campeon.
+    pero si empatan 1==1 se juega un 3er set a 15 puntos.
+    */
+}
