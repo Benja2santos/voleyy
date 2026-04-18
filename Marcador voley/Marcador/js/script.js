@@ -63,3 +63,8 @@ function campeon(){
     pero si empatan 1==1 se juega un 3er set a 15 puntos.
     */
 }
+//reiniciar partido(para hacer)
+function resetMatch(){
+    /* reiniciar partido, necesario para cuando salga el campeon empiece
+    set y el score desde 0 */
+}
