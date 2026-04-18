@@ -41,7 +41,7 @@ function setScore(){
 }
 function sets(){
     numero_sets ++;
-    document.getElementById('sets').textContent = ("Set: " , numero_sets);
+    document.getElementById('sets').textContent = numero_sets;
 }
 function resetScore(){
     scoreA = 0;
