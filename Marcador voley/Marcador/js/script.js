@@ -1,38 +1,60 @@
 // VARIABLES GLOBALES
-let scoreA = 0;
-let scoreB = 0;
+let scoreA = 20;
+let scoreB = 20;
 
-let numero_sets = 1; //CONTADOR DE SETS (arranca de 1 porque es el primer ser)
+/* let numero_sets = 1; //CONTADOR DE SETS (arranca de 1 porque es el primer ser) */
 
-let campeonA = 0;//EL QUE LLEGUE PRIMERO A 2 SETS ES CAMPEON
-let campeonB = 0;
+let setA = 0;//EL QUE LLEGUE PRIMERO A 2 SETS ES CAMPEON
+let setB = 0;
 
 //AUMENTO DE PUNTOSSS
-function addPoint(team) {
-    if ( team === 'A'){
-        scoreA++;
-        document.getElementById('scoreA').textContent = scoreA;
-    }else if ( team === 'B'){
-        scoreB++;
-        document.getElementById('scoreB').textContent = scoreB;
+function addPoint(){
+    if (team === 'A'){
+    scoreA ++;
+    }else if (team === 'B'){
+    scoreB ++;
     }
-    setScore()
+    actualizarMarcador();
+    comprobarGanador();
 }
 //BAJAR PUNTOS
 function subtrackPoint(team) {
     if ( team === 'A' && scoreA > 0){
         scoreA--;
-        document.getElementById('scoreA').textContent = scoreA;
     }else if ( team === 'B' && scoreB > 0){
         scoreB--;
-        document.getElementById('scoreB').textContent = scoreB;
+    }
+}
+
+function ganador(){
+    let puntosMax = (setA === 1 && setB === 1) ? 15 : 25;
+
+    if (scoreA >=puntosMax && scoreA - scoreA >=2){
+        setB++;
+        alert("Set para team A!");
+        resetScore();
+        if (setB === 2){
+            alert("¡Team B gana el partido!");
+            resetSet();
+        }
+        actualizarMarcador();
+        return;
+    }
+    if (scoreB >=puntosMax && scoreB - scoreA >=2){
+        setB++;
+        alert("Set para team B!");
+        resetScore();
+        if (setB === 2){
+            alert("¡Team B gana el partido!");
+            resetSet();
+        }
+        actualizarMarcador();
+        return;
     }
 }
 //EL QUE LLEGUE A 25PTS GANA EL SET
 function setScore(){
-    const diferencia = Math.abs(scoreA - scoreB);//VARIABLE PARA COMPARAR VALORES
-
-    if (( scoreA >= 25 || scoreB >= 25) && diferencia >= 2){
+    if (( scoreA >= 25 || scoreB >= 25) && scoreA - scoreB >= 2){
         if (scoreA > scoreB){
             scoreA++;
             alert("El equipo ganador es: Equipo A");
@@ -45,26 +67,21 @@ function setScore(){
     }
 
 }
-//AUMENTA LOS SETS
-function sets(){
-    numero_sets ++;
-    document.getElementById('sets').textContent = numero_sets;
-}
-//RESETEADORRR
 function resetScore(){
-    scoreA = 0;
-    scoreB = 0;
+    scoreA = 20;
+    scoreB = 20;
     document.getElementById('scoreA').textContent = scoreA;
     document.getElementById('scoreB').textContent = scoreB;
 }
-//DEFINE EL GANADOR FINAL (para terminar)
-function campeon(){
-    /* se juegan 2 sets y que gane 2 sets de seguido es campeon.
-    pero si empatan 1==1 se juega un 3er set a 15 puntos.
-    */
+function resetSet(){
+    setA = 20;
+    setB = 20;
+    document.getElementById('setA').textContent = setA;
+    document.getElementById('setB').textContent = setB;
 }
-//reiniciar partido(para hacer)
-function resetMatch(){
-    /* reiniciar partido, necesario para cuando salga el campeon empiece
-    set y el score desde 0 */
+function actualizarMarcador(){
+    document.getElementById('scoreB').textContent = scoreA;
+    document.getElementById('scoreB').textContent = scoreB;
+    document.getElementById('setA').textContent = setA;
+    document.getElementById('setB').textContent = setB;
 }

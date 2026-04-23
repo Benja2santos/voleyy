@@ -127,3 +127,12 @@ button:active {
 .controls button:hover {
     background-color: #ff4d5a;
 }
+.btn-recargar{
+    padding: 10px 20px;
+    background-color: var(--color-boton);
+    color: var(--color-blanco);
+    justify-content: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}

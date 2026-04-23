@@ -4,38 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/estilo.css">
-    <title>Marcador</title>
+    <title>Marcador Voley Benja</title>
 </head>
 <body>
     <!-- aca no voy a comentar nada porque ya dimos todo en clase -->
     <div class="caja-sets">
-        <h1>Sets</h1>
-        <div class="sets" id="sets">1</div>
+        <h1>Set</h1>
+        <div class="sets"><span id="sets">1</span></div>
     </div>
     <div class="caja-scoreboard">
         <div class="team">
-            <div class="campeon" id="campeonA"></div>
             <h2>Equipo A</h2>
-            <div class="setA"></div>
-            <div class="score" id="scoreA">0</div>
+            <div id="setA"></div>
+            <div class="score" id="scoreA">20</div>
             <div class="buttons">
                 <button onclick="addPoint('A')">+1</button>
                 <button onclick="subtrackPoint('A')">-1</button>
             </div>
+            <h4>Ganados <span id="setA">0</span></h4>
         </div>
         <div class="team">
             <div class="campeon" id="campeonB"></div>
             <h2>Equipo B</h2>
-            <div class="setB"></div>
-            <div class="score" id="scoreB">0</div>
+            <div id="setB"></div>
+            <div class="score" id="scoreB">20</div>
             <div class="buttons">
                 <button onclick="addPoint('B')">+1</button>
                 <button onclick="subtrackPoint('B')">-1</button>
             </div>
+            <h4>Ganados <span id="setB">0</span></h4>
         </div>
     </div>
     <div class="controls">
-        <button onclick="resetScore()">Reiniciar</button>
+        <button onclick="resetScore()">Reiniciar Puntos</button>
+        <button onclick="resetSet()">Reiniciar Set</button>
     </div>
     <script src="./js/script.js"></script>
 </body>
